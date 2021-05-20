@@ -11,7 +11,45 @@ crontab 사진 옮기기 - 폰 갤러리
 #!/bin/bash
 date >> ~tommy/log/timelap.log   
 echo "hello" >> ~tommy/log/timelap.log
-#python3 /home/tommy/data_augmentation/gitsave/Python/client/client.py
+#python3 -u /home/tommy/data_augmentation/gitsave/Python/client/client.py >> ~tommy/log/timelap.log 2>&1
+
+-u     : unbuffered binary stdout and stderr; also PYTHONUNBUFFERED=x
+         see man page for details on internal buffering relating to '-u'
+         
+         https://stackoverflow.com/questions/14258500/python-significance-of-u-option
+
+2>&1 는 표준에러를 표준출력으로 redirection 하라는 의미입니다.
+리다이렉션 : 출력의 방향을 바꾸는 것
+
+0 : 표준입력
+
+1 : 표준출력
+
+2 : 표준에러
+
+리다이렉션이란,
+말 그대로 출력의 방향을 바꾸는 것을 말한다. 예를 들어서 일반 컴퓨터의 표준 출력 장치는 모니터이고 표준 입력 장치는 키보드이다. 출력의 방향을 바꾼다는 것은 모니터로 출력 되어야 할 내용을 파일로 저장을 시킨다든지 또는 다른 장치, 즉 통신 포트나 프린터로 출력의 방향을 바꿀 수 있다.
+
+
+
+
+처음 "> /dev/null" 은 표준출력을 /dev/null로 보내고 (즉, 버린다는 뜻)이고 두번째 부분인 "2>&1"은 표준에러를 표준출력이 보내진 곳과 동일한 곳으로 보낸다는 뜻이다.
+
+
+<     filename   입력 방향을 바꾼다.
+>     filename   출력 방향을 바꾼다.
+>>   filename   출력에 덧붙인다.
+2>   filename   오류의 방향을 바꾼다.
+2>> filename   오류의 방향을 바꾸고 덧붙인다.
+&>  filename   출력과 오류를 리다이렉션 한다.
+>&  filename   오류와 출력을 리다이렉션 한다.
+1>&2             출력을 오류로 내보낸다.
+2>&1             오류를 출력으로 내보낸다.
+>|                출력을 리다이렉션 할 때 NOCLOBBER 설정을 무시한다
+<>  filename  장치 파일(/dev)이면, 표준 출력, 표준 입력 등에 모두 사용한다.
+
+
+출처: https://sinpk.tistory.com/entry/21-의미 [IT]
 
 
 tail -f timelap.log
