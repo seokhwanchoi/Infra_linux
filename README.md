@@ -192,3 +192,28 @@ encoding은 특정 방식으로 데이터를 변환하는 것
  
 
 암호화: 데이터를 비밀로 유지하려는 의도로 데이터를 변환하는 것. 암호 알고리즘을 이용해 데이터를 암호화하고 특수 키를 사용하여 암호를 해독한다. 예를 들어 대칭키, 공개키 방식.
+
+
+
+tail -f timelap.log
+
+sh ~tommy/tielap
+
+/bin/sh
+
+
+
+timelap.log
+
+timelap.sh
+이걸만든 이유는  python3 --- 을실험하기 위한것
+
+crontab -e 에 등록하고싶은거지
+
+timelap.sh을
+
+
+점검했어 log파일을 통해 ->
+
+crontab 쓸때 는 항상 log를 남겨야 한다
+
